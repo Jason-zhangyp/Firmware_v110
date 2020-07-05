@@ -59,6 +59,7 @@ public:
 	/**
 	 * Check the feasibility of orbit parameters with respect to
 	 * centripetal acceleration a = v^2 / r
+	 * 检查关于向心加速度a = v ^ 2 / r的轨道参数的可行性
 	 * @param r desired radius
 	 * @param v desired velocity
 	 * @param a maximal allowed acceleration

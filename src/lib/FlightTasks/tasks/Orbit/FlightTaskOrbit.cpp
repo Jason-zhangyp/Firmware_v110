@@ -112,10 +112,16 @@ bool FlightTaskOrbit::sendTelemetry()
 
 bool FlightTaskOrbit::setRadius(float r)
 {
-	// clip the radius to be within range
+	// 将半径控制在范围之内
 	r = math::constrain(r, _radius_min, _radius_max);
 
 	// small radius is more important than high velocity for safety
+	/**
+	 * sing(_v),
+	 * 当_v>0时，sing(_v)=1;
+	 * 当_v=0时，sing(_v)=0;
+	 * 当_v<0时，sing(_v)=-1;
+	*/
 	if (!checkAcceleration(r, _v, _acceleration_max)) {
 		_v = math::sign(_v) * sqrtf(_acceleration_max * r);
 	}
